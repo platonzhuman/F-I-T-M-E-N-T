@@ -23,6 +23,8 @@ body::before {
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
     z-index: -1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 .container {
     max-width: 1200px;
