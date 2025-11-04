@@ -1,13 +1,15 @@
 body {
     background-image: url("image/phon-image.jpg");
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-size: cover;
+    background-position: center;
     font-size: 16pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
     color: #fff;
+    min-height: 100vh;
 }
 
 body::before {
@@ -16,14 +18,12 @@ body::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.4);
     z-index: -1;
 }
 
-/* ========================== HEADER-MOMENT ========================== */
-
-
+/* ========================== HEADER ========================== */
 .head-container {
     backdrop-filter: blur(15px);
     background: rgba(255, 255, 255, 0.1);
@@ -31,6 +31,8 @@ body::before {
     margin: 10px;
     box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1000;
 }
 
 .logo-img {
@@ -109,10 +111,207 @@ body::before {
 }
 
 /* ========================= MAIN =========================== */
-/* ========================= MAIN =========================== */
-/* ========================= MAIN =========================== */
+/* ========================= HERO-SECTION =========================== */
+.hero {
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
 
-/* ========================= about-SECTION =========================== */
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: white;
+}
+
+.city {
+    color: #b3e9e2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Процесс доставки */
+.delivery-process {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 60px 0;
+    position: relative;
+    perspective: 1000px;
+}
+
+.process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.step-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px 15px;
+    margin: 0 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #b3e9e2;
+    transition: all 0.3s ease;
+}
+
+.step-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.step-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+}
+
+/* Соединительные линии */
+.process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 40px;
+    height: 2px;
+    background: rgba(179, 233, 226, 0.5);
+    z-index: 1;
+}
+
+.process-step:not(:last-child)::before {
+    content: '→';
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    transform: translateY(-50%);
+    color: #b3e9e2;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+/* Анимации */
+@keyframes waterFloat {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    25% { 
+        transform: translateY(-8px) translateX(3px) rotate(0.5deg); 
+    }
+    50% { 
+        transform: translateY(-5px) translateX(-2px) rotate(-0.3deg); 
+    }
+    75% { 
+        transform: translateY(-7px) translateX(1px) rotate(0.2deg); 
+    }
+}
+
+.step-card {
+    animation: waterFloat 8s ease-in-out infinite;
+}
+
+.process-step:nth-child(2) .step-card {
+    animation-delay: 0.5s;
+}
+
+.process-step:nth-child(3) .step-card {
+    animation-delay: 1s;
+}
+
+.process-step:hover .step-card {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.process-step:hover .step-icon {
+    transform: scale(1.2);
+    color: #ffd700;
+}
+
+/* Кнопки действий */
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary, .btn-outline {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-secondary {
+    background: #4ecdc4;
+    color: white;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline:hover {
+    background: rgba(46, 149, 153, 0.1);
+}
+
+/* ========================= ABOUT-SECTION =========================== */
 .about {
     padding: 80px 20px;
     position: relative;
@@ -197,38 +396,13 @@ body::before {
     border-radius: 15px;
 }
 
-
-
-
-
-.btn-primary {
-    padding: 15px 30px;
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background: #ff5252;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-}
-
-
-/* =========================PROJECT-SECTION========================== */
-
-/* 3D галерея проектов */
+/* ========================= PROJECT-SECTION ========================== */
 .projects-3d {
     padding: 80px 20px;
-            margin: 20px;
-            border: 1px solid white;
-            border-radius: 20px;
-            backdrop-filter: blur(15px);
+    margin: 20px;
+    border: 1px solid white;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
 }
 
 .projects-3d .container {
@@ -315,207 +489,6 @@ body::before {
     line-height: 1.4;
 }
 
-
-
-/* ========================= HERO-SECTION =========================== */
-
-
- /* ========================= HERO-SECTION =========================== */
-        .hero {
-            padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            color: white;
-        }
-
-        .city {
-            color: #b3e9e2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Процесс доставки */
-        .delivery-process {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 60px 0;
-            position: relative;
-            perspective: 1000px;
-        }
-
-        .process-step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            transform-style: preserve-3d;
-            transition: all 0.5s ease;
-        }
-
-        .step-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px 15px;
-            margin: 0 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transform: translateZ(20px);
-            transition: all 0.5s ease;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .step-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #b3e9e2;
-            transition: all 0.3s ease;
-        }
-
-        .step-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .step-description {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.4;
-        }
-
-        /* Соединительные линии */
-        .process-step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -20px;
-            width: 40px;
-            height: 2px;
-            background: rgba(179, 233, 226, 0.5);
-            z-index: 1;
-        }
-
-        .process-step:not(:last-child)::before {
-            content: '→';
-            position: absolute;
-            top: 50%;
-            right: -30px;
-            transform: translateY(-50%);
-            color: #b3e9e2;
-            font-size: 1.2rem;
-            z-index: 2;
-        }
-
-        /* Анимации */
-@keyframes waterFloat {
-    0%, 100% { 
-        transform: translateY(0) rotate(0deg); 
-    }
-    25% { 
-        transform: translateY(-8px) translateX(3px) rotate(0.5deg); 
-    }
-    50% { 
-        transform: translateY(-5px) translateX(-2px) rotate(-0.3deg); 
-    }
-    75% { 
-        transform: translateY(-7px) translateX(1px) rotate(0.2deg); 
-    }
-}
-
-.step-card {
-    animation: waterFloat 8s ease-in-out infinite;
-}
-
-        .process-step:nth-child(2) .step-card {
-            animation-delay: 0.5s;
-        }
-
-        .process-step:nth-child(3) .step-card {
-            animation-delay: 1s;
-        }
-
-.process-step:hover .step-card {
-    transform: scale(1.05); /* убрал translateZ */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-        .process-step:hover .step-icon {
-            transform: scale(1.2);
-            color: #ffd700;
-        }
-
-        /* Кнопки действий */
-        .hero-actions {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary, .btn-secondary, .btn-outline {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: #ff6b6b;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: #4ecdc4;
-            color: white;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-outline:hover {
-            background: rgba(46, 149, 153, 0.1);
-        }
 /* ========================= PROMOTIONS =========================== */
 .promotions {
     padding: 80px 20px;
@@ -658,11 +631,12 @@ body::before {
     color: #999;
     font-size: 0.9rem;
 }
+
 /* ========================= ANIMATED FORM =========================== */
 .animated-form-section {
     padding: 80px 20px;
     backdrop-filter: blur(150px);
-    margin:300px;
+    margin: 20px;
     border-radius: 20px;
     border: 1px solid white;
     color: white;
@@ -771,10 +745,12 @@ body::before {
     color: #b3e9e2;
     transform: translateY(-10px);
 }
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: transparent;
 }
+
 .form-group input:focus ~ .underline,
 .form-group textarea:focus ~ .underline {
     transform: scaleX(1);
@@ -844,83 +820,10 @@ body::before {
     box-shadow: 0 10px 25px rgba(179, 233, 226, 0.3);
 }
 
-/* Состояния кнопки */
-.btn-loader,
-.btn-success {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.btn-loader {
-    display: flex;
-    gap: 5px;
-}
-
-.loader-dot {
-    width: 8px;
-    height: 8px;
-    background: #1a2a3a;
-    border-radius: 50%;
-    animation: dotPulse 1.4s ease-in-out infinite both;
-}
-
-.loader-dot:nth-child(2) { animation-delay: 0.2s; }
-.loader-dot:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes dotPulse {
-    0%, 80%, 100% {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-    40% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.btn-success i {
-    font-size: 1.5rem;
-    color: #1a2a3a;
-}
-
-/* Состояния формы */
-.animated-form.loading .btn-text {
-    opacity: 0;
-}
-
-.animated-form.loading .btn-loader {
-    opacity: 1;
-}
-
-.animated-form.success .btn-text {
-    opacity: 0;
-}
-
-.animated-form.success .btn-success {
-    opacity: 1;
-}
-
-/* Анимация успешной отправки */
-@keyframes successPulse {
-    0% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.1); }
-    100% { transform: translate(-50%, -50%) scale(1); }
-}
-
-.animated-form.success .btn-success {
-    animation: successPulse 0.6s ease;
-}
-
-
-
 /* ========================= FOOTER =========================== */
 .footer {
     backdrop-filter: blur(30px);
-    margin:20px;
+    margin: 20px;
     border: 1px solid white;
     border-radius: 20px;
     color: white;
@@ -1032,41 +935,39 @@ body::before {
     color: #b3e9e2;
 }
 
-
-
-
-
- 
-/* ========================== MEDIA-MOMENT ==========================
-========================== MEDIA-MOMENT ========================== */
-
+/* ========================== MEDIA QUERIES ========================== */
 @media (max-width: 768px) {
     body {
-        background-size: cover;
-        background-position: center;
+        background-size: auto 100vh; /* высота на весь экран, ширина auto */
+        background-position: top center;
+        font-size: 14pt;
     }
+    
     /* HEADER */
     .hamburger {
         display: flex;
         margin-right: 20px;
     }
-    .logo-img{
-        width:50px;
-        height:50px;
+    
+    .logo-img {
+        width: 50px;
+        height: 50px;
     }
+    
     .nav-list {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(140, 177, 192, 0.9);
+        background: rgba(140, 177, 192, 0.95);
         flex-direction: column;
         padding: 20px;
         gap: 15px;
         margin: 10px;
         border-radius: 15px;
         backdrop-filter: blur(10px);
+        z-index: 1000;
     }
     
     .nav-list.active {
@@ -1084,10 +985,56 @@ body::before {
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
     }
-    /* MAIN */
+    
+    /* HERO-SECTION */
+    .hero {
+        padding: 40px 15px;
+        min-height: 50vh;
+        margin-top: 20px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .delivery-process {
+        flex-direction: column;
+        gap: 30px;
+        margin: 40px 0;
+    }
+    
+    .process-step {
+        width: 100%;
+    }
+    
+    .process-step:not(:last-child)::after,
+    .process-step:not(:last-child)::before {
+        display: none;
+    }
+    
+    .step-card {
+        min-height: auto;
+        margin: 0;
+        padding: 20px 15px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary, .btn-outline {
+        width: 100%;
+        max-width: 300px;
+    }
+    
     /* ABOUT-SECTION */
     .about {
-        margin-top: 150px;
+        margin-top: 40px;
         padding: 40px 15px;
     }
     
@@ -1106,22 +1053,10 @@ body::before {
         text-align: center;
     }
     
-    .video-play {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .video-play::after {
-        border-width: 8px 0 8px 16px;
-    }
-    
-    .btn-primary {
-        width: 100%;
-        text-align: center;
-    }
-    /* PROJECT-SECITON */
+    /* PROJECT-SECTION */
     .projects-3d {
         padding: 40px 15px;
+        margin: 10px;
     }
     
     .projects-3d .section-title {
@@ -1144,53 +1079,10 @@ body::before {
         height: 240px;
     }
     
-    .gallery-controls {
-        margin-top: 30px;
-    }
-    /* HERO-SECITON */
-    .hero {
-        padding: 40px 15px;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .delivery-process {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .process-step {
-        width: 100%;
-    }
-    
-    .process-step:not(:last-child)::after,
-    .process-step:not(:last-child)::before {
-        display: none;
-    }
-    
-    .step-card {
-        min-height: 150px;
-        margin: 0;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn-primary, .btn-secondary, .btn-outline {
-        width: 100%;
-        max-width: 300px;
-    }
-    /* PROMOTIONS-CONTENT */
-        .promotions {
+    /* PROMOTIONS */
+    .promotions {
         padding: 60px 15px;
+        margin: 10px;
     }
     
     .section-title {
@@ -1200,7 +1092,8 @@ body::before {
     .promotions-grid {
         grid-template-columns: 1fr;
     }
-    /* REVIEWS-CONTENT */
+    
+    /* REVIEWS */
     .reviews {
         padding: 60px 15px;
     }
@@ -1208,10 +1101,11 @@ body::before {
     .reviews-slider {
         grid-template-columns: 1fr;
     }
-    /* FORM-CONTENT */
+    
+    /* FORM */
     .animated-form-section {
         padding: 60px 15px;
-        margin:10px;
+        margin: 10px;
     }
     
     .animated-form {
@@ -1231,9 +1125,11 @@ body::before {
         width: 100%;
         max-width: 300px;
     }
-    /* FOOTER-CONTENT */
+    
+    /* FOOTER */
     .footer {
         padding: 40px 0 20px;
+        margin: 10px;
     }
     
     .footer-nav {
@@ -1256,26 +1152,48 @@ body::before {
         justify-content: center;
         flex-wrap: wrap;
     }
+    
+    .head-container {
+        margin: 5px;
+    }
 }
 
 @media (max-width: 480px) {
-    /* HERO-SECITON */
-    .hero-stats {
-        gap: 20px;
+    body {
+        font-size: 12pt;
     }
     
-    .stat-item {
-        min-width: 100px;
-        padding: 12px;
-    }
-    
-    .stat-number {
+    .hero-title {
         font-size: 1.8rem;
     }
-    /* FOOTER-CONTENT */
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-title {
+        font-size: 1.8rem;
+    }
+    
     .footer-nav {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-} 
-
+    
+    .nav-link {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    
+    .step-card {
+        padding: 15px 10px;
+    }
+    
+    .promotion-card {
+        padding: 20px 15px;
+    }
+    
+    .review-card {
+        padding: 20px 15px;
+    }
+}
