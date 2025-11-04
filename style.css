@@ -1,10 +1,10 @@
 body {
     background-image: url("image/phon-image.jpg");
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    font-size: 16pt;
+    font-size: 16pt;background-position: top center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
