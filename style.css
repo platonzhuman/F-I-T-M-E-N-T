@@ -1165,6 +1165,8 @@ body::before {
 
 @media (max-width: 480px) {
     body {
+        background-size: auto 100vh; /* высота на весь экран, ширина auto */
+        background-position: top center;
         font-size: 12pt;
     }
     

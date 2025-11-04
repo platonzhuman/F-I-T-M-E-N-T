@@ -1192,3 +1192,10 @@ option {
     font-family: Georgia, 'Times New Roman', Times, serif;
     border-left: 4px solid #b3e9e2;
 }
+@media (max-width: 480px) {
+    body {
+        background-size: auto 100vh; /* высота на весь экран, ширина auto */
+        background-position: top center;
+        font-size: 12pt;
+    }
+}
