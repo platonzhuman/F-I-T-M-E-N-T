@@ -2,7 +2,7 @@
 body {
     background-image: url("image/phon-image-three.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-size: cover;
     font-size: 16pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -657,6 +657,10 @@ main {
 
 /* ========================== MEDIA QUERIES ========================== */
 @media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
     /* HEADER */
     .hamburger {
         display: flex;
