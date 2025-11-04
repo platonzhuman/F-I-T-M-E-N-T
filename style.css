@@ -1,4 +1,4 @@
-body {
+/* body {
     background-image: url("image/phon-image.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -27,6 +27,53 @@ body::before {
     z-index: -1;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+} */
+
+body {
+    font-size: 16pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Фон как img элемент */
+.page-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* важно - растягивает картинку на весь экран */
+    z-index: -2;
+}
+
+/* Затемнение поверх картинки */
+.page-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+/* Контент поверх фона */
+.head-container,
+.hero,
+.about,
+.projects-3d,
+.promotions,
+.reviews,
+.animated-form-section,
+.footer {
+    position: relative;
+    z-index: 1;
 }
 
 /* ========================== HEADER ========================== */
