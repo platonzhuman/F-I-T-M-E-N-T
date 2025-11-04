@@ -4,7 +4,8 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    font-size: 16pt;background-position: top center;
+    font-size: 16pt;
+    position:sticky;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
@@ -1167,7 +1168,7 @@ body::before {
     body {
         background-size: auto 100vh; /* высота на весь экран, ширина auto */
         background-position: top center;
-        font-size: 12pt;
+        font-size: 1pt;
     }
     
     .hero-title {
