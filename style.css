@@ -10,6 +10,9 @@ body {
     padding: 0;
     color: #fff;
     min-height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 body::before {
@@ -1034,7 +1037,7 @@ body::before {
     
     /* ABOUT-SECTION */
     .about {
-        margin-top: 40px;
+        margin-top: 200px;
         padding: 40px 15px;
     }
     
