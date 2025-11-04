@@ -1,4 +1,9 @@
 /* Основные стили */
+
+*{
+    max-width: 99.99%;
+}
+
 body {
     font-size: 16pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -932,11 +937,6 @@ option {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    body {
-        background-size: auto 100vh; /* высота на весь экран, ширина auto */
-        background-position: top center;
-        font-size: 14pt;
-    }
     .hamburger {
         display: flex;
         margin-right: 20px;
@@ -1206,11 +1206,4 @@ option {
     max-width: 300px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     border-left: 4px solid #b3e9e2;
-}
-@media (max-width: 480px) {
-    body {
-        background-size: auto 100vh; /* высота на весь экран, ширина auto */
-        background-position: top center;
-        font-size: 12pt;
-    }
 }

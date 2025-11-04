@@ -959,11 +959,6 @@ body {
 
 /* ========================== MEDIA QUERIES ========================== */
 @media (max-width: 768px) {
-    body {
-        background-size: auto 100vh; /* высота на весь экран, ширина auto */
-        background-position: top center;
-        font-size: 14pt;
-    }
     
     /* HEADER */
     .hamburger {
@@ -1181,11 +1176,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    body {
-        background-size: auto 100vh; /* высота на весь экран, ширина auto */
-        background-position: top center;
-        font-size: 1pt;
-    }
     
     .hero-title {
         font-size: 1.8rem;
