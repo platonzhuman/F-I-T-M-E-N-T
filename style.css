@@ -91,7 +91,13 @@ body {
     text-decoration: none;
     color: #fff;
 }
-
+.bob{
+    font-size:20px;
+}
+.kol{
+    font-size:20pt;
+    color: rgb(255, 187, 0);
+}
 .nav-list {
     display: flex;
     list-style: none;
